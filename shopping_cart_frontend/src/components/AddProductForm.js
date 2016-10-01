@@ -10,7 +10,44 @@ const Form = class extends Component {
     event.preventDefault()
     var product = {title: event.target[0].value, price: event.target[1].value, quantity: event.target[2].value}
     debugger
-    this.props.addProductToInventory(product)
+    if (this.validateAllInputs(product)){
+      this.props.addProductToInventory(product)
+    } else {
+      alert("invalid entry")
+    }
+  }
+
+  validateTitle(product){
+    if ( product.title !== "" && typeof(product.title) === "string" ){
+      return true
+    } else {
+      return false
+    }
+  }
+
+  validatePrice(product){
+    var regex = /^\d*(.\d{2})?$/;
+    if ( product.price !== "" && typeof(parseFloat(product.price)) === "number" && parseFloat(product.price) > 0  && regex.test(product.price)  ){
+      return true
+    } else {
+      return false
+    }
+  }
+
+  validateQuantity(product){
+    if ( product.quantity !== "" && typeof(parseInt(product.quantity)) === "number" && parseInt(product.quantity) > 0  ){
+      return true
+    } else {
+      return false
+    }
+  }
+
+  validateAllInputs(product){
+    if (this.validatePrice(product) && this.validateTitle(product) && this.validateQuantity(product)){
+      return true
+    } else {
+      return false
+    }
   }
 
 
