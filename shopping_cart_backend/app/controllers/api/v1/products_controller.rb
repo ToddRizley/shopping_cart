@@ -13,12 +13,10 @@ module Api
         else
           @product =  Product.create(title: title, price: price, quantity: quantity)
         end
-        binding.pry
         render json: @product
       end
 
       def index
-        binding.pry
         render json: Product.all
       end
 
