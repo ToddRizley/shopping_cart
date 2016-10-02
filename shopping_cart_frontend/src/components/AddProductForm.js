@@ -64,7 +64,7 @@ const Form = class extends Component {
                 <input type="text" className="entry-input" ref="price" />
                 <label>Quantity</label>
                 <input type="number" className="entry-input" ref="quantity" />
-                <button type="submit">Submit</button>
+                <button type="submit">Add Product</button>
             </form>
           </center>
         </div>
