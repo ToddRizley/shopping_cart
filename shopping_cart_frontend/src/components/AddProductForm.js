@@ -8,12 +8,13 @@ const Form = class extends Component {
 
   handleFormSubmit(event){
     event.preventDefault()
-    var product = {title: event.target[0].value, price: event.target[1].value, quantity: event.target[2].value}
-    debugger
+    var product = {title: this.refs.title.value, price: this.refs.price.value, quantity: this.refs.quantity.value}
     if (this.validateAllInputs(product)){
       this.props.addProductToInventory(product)
+      this.refs.form.reset()
     } else {
       alert("invalid entry")
+      this.refs.form.reset()
     }
   }
 
@@ -55,14 +56,14 @@ const Form = class extends Component {
         return (
         <div>
           <center>
-            <form onSubmit={this.handleFormSubmit.bind(this)}>
+            <form onSubmit={this.handleFormSubmit.bind(this)} ref="form">
                 <h1>Add a Product To Store </h1>
                 <label>Title</label>
-                <input type="text" className="entry-input" id="title" />
+                <input type="text" className="entry-input" ref="title" />
                 <label>Price</label>
-                <input type="text" className="entry-input" id="price" />
+                <input type="text" className="entry-input" ref="price" />
                 <label>Quantity</label>
-                <input type="number" className="entry-input" id="quantity" />
+                <input type="number" className="entry-input" ref="quantity" />
                 <button type="submit">Submit</button>
             </form>
           </center>
