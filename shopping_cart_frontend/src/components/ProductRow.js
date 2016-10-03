@@ -1,44 +1,77 @@
 import React, { Component } from 'react'
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import addToShoppingCart from '../actions/addToShoppingCart'
 
-
-const ProductRow= class extends Component {
+const Row= class extends Component {
   constructor(props) {
       super(props)
-      this.state = { disabled: true, quantity: 0 }
+      this.state = { hidden: false }
     }
 
     toggleState(){
+      var title = Object.keys(this.props.productData)[0]
+      var inventoryQuant = this.props.productData[title].quantity
+      var productInfo = (this.props.shoppingCart.shoppingCart.find((obj)=> {if( Object.keys(obj)[0] === title ) { return obj } }))
+      var productQuant = (()=> {
+        if (productInfo === undefined){
+          return 0
+        } else {
+          return productInfo[title].quantity
+        }
+      })()
+      if (inventoryQuant <= productQuant + 1){
       this.setState({
-        disabled: !this.state.disabled
-      })
-    }
-
-    handleQuantity(){
-      this.setState({
-        quantity: this.refs.quantity.value
-      })
-    }
-
-    displayBox(){
-      if (!this.state.disabled){
-        return (
-          <label><input type="number" className="entry-input" ref="quantity" onChange={this.handleQuantity.bind(this)} min="0" max={this.props.productData.quantity} step="1" />Quantity</label>
-        )
+        hidden: true,
+        color: "grey"
+      })} else {
+        this.setState({
+          hidden: false
+        })
       }
     }
 
+
+
+
+    handleClick(event){
+      event.preventDefault()
+      debugger
+      this.toggleState()
+      this.props.addToShoppingCart(this.props.productData, this.props.currentUser.currentUser)
+
+    }
 
 
   render(){
+
+    var title = Object.keys(this.props.productData)[0]
+     var inventoryQuant = this.props.productData[title].quantity
+     var productInfo = (this.props.shoppingCart.shoppingCart.find((obj)=> {if( Object.keys(obj)[0] === title ) { return obj } }))
+     var productQuant = (()=> {
+       if (productInfo === undefined){
+         return 0
+       } else {
+         return productInfo[title].quantity
+       }
+     })()
         return (
-          <div><input type="checkbox" class="product" ref={this.state.selected} value={this.props.productData.title} onChange={this.toggleState.bind(this)}/>
-          <strong>{ this.props.productData.title }</strong> |
-            { " $"+ this.props.productData.price } |
-            { " " + this.props.productData.quantity + "items left in stock" }
-            {this.displayBox()}
+          <div>
+          <strong>{ Object.keys(this.props.productData)[0] }</strong> |
+            { " $"+ this.props.productData[title].price } |
+            { " " + inventoryQuant - productQuant  + " item(s) left in stock" }
+            <button onClick={this.handleClick.bind(this)} hidden={this.state.hidden}> Add To Cart </button>
           </div>
         );
       }
+    }
+    const ProductRow = connect(mapStateToProps, mapDispatchToProps)(Row)
+
+    function mapDispatchToProps(dispatch) {
+      return  bindActionCreators({addToShoppingCart}, dispatch)
+    }
+    function mapStateToProps(state) {
+      return { inventory: state.inventory, shoppingCart: state.shoppingCart }
     }
 
 

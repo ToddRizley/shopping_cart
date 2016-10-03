@@ -9,6 +9,7 @@ import InventoryList from './containers/InventoryList'
 export default (
   <Route>
     <Route path="/" component={App} />
+    <Route path="/add_product" component={AddProductForm} />
     <Route path="/inventory" component={InventoryList} />
   </Route>
   );
