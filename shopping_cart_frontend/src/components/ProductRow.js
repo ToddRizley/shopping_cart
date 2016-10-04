@@ -36,7 +36,6 @@ const Row= class extends Component {
 
     handleClick(event){
       event.preventDefault()
-      debugger
       this.toggleState()
       this.props.addToShoppingCart(this.props.productData, this.props.currentUser.currentUser)
 
@@ -58,8 +57,8 @@ const Row= class extends Component {
         return (
           <div>
           <strong>{ Object.keys(this.props.productData)[0] }</strong> |
-            { " $"+ this.props.productData[title].price } |
-            { " " + inventoryQuant - productQuant  + " item(s) left in stock" }
+            { " $"+ this.props.productData[title].price } | {" " }
+            { " " + inventoryQuant - productQuant + " item(s) left in stock " }
             <button onClick={this.handleClick.bind(this)} hidden={this.state.hidden}> Add To Cart </button>
           </div>
         );
