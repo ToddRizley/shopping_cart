@@ -7,7 +7,7 @@ class ShoppingContainer extends Component {
   render() {
     return (
       <div >
-        <InventoryListContainer /> |||| <ShoppingCartListContainer />
+        <InventoryListContainer /> <ShoppingCartListContainer />
       </div>
     );
   }

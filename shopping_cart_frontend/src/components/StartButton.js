@@ -10,7 +10,7 @@ const Button= class extends Component {
   render(){
         return (
           <div>
-          <button onClick={this.props.fetchCurrentUser} ><Link to={"/browse_inventory"}>Get Shopping!</Link></button>
+          <button className="button_start" onClick={this.props.fetchCurrentUser} ><Link to={"/browse_inventory"}>Get Shopping!</Link></button>
           </div>
         );
       }

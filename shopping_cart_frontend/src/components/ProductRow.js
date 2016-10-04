@@ -46,6 +46,7 @@ const Row= class extends Component {
     })
   }
 
+
   render(){
     var title = Object.keys(this.props.productData)[0]
      var inventoryQuant = this.props.productData[title].quantity
@@ -58,11 +59,11 @@ const Row= class extends Component {
        }
      })()
         return (
-          <div >
+          <div>
           <strong>{ Object.keys(this.props.productData)[0] }</strong> |
             { " $"+ parseInt(this.props.productData[title].price).toFixed(2) } | {" " }
             { " " + inventoryQuant - productQuant + " item(s) left in stock " }
-            <button onClick={this.handleClick.bind(this)} hidden={(()=> {if (inventoryQuant <= productQuant){ return true}})()}> Add To Cart </button>
+            <span hidden={(()=> {if (inventoryQuant <= productQuant){ return true}})()}><button className="button_product" onClick={this.handleClick.bind(this)} > Add To Cart </button></span>
           </div>
         );
       }

@@ -20,7 +20,7 @@ const Row= class extends Component {
           <strong>{ title }</strong> |
             { " $"+ parseInt(product[title].price).toFixed(2)  } | {" " }
             { product[title].quantity + " item(s)" }
-            <button onClick={this.handleClick.bind(this)} > Remove Items From Cart </button>
+            <button className="button_product" onClick={this.handleClick.bind(this)} > Remove Items From Cart </button>
           </div>
         );
       }
