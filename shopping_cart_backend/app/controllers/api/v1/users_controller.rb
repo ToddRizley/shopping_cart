@@ -9,7 +9,17 @@ module Api
 
       def update
         @current_user = User.all.find_by(id: params["id"].to_i)
-        @current_user.products.push(Product.all.find_by(title: params["product"].keys[0]))
+        if params["type"] == "add"
+          @current_user.products.push(Product.all.find_by(title: params["product"].keys[0]))
+        else
+          title = params["product"].keys[0]
+          product_id = Product.all.find_by(title: title).id
+          Cart.all.each do |prod|
+            if prod.product_id == product_id && prod.user_id == @current_user.id
+              prod.delete
+            end
+          end
+        end
 
         def prepare_cart
           product_list = []
@@ -23,10 +33,10 @@ module Api
           end
           product_list
         end
-        prepare_cart
         render json: prepare_cart
       end
 
+  
     end
   end
 end
