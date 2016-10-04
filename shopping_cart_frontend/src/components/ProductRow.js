@@ -60,7 +60,7 @@ const Row= class extends Component {
         return (
           <div >
           <strong>{ Object.keys(this.props.productData)[0] }</strong> |
-            { " $"+ this.props.productData[title].price } | {" " }
+            { " $"+ parseInt(this.props.productData[title].price).toFixed(2) } | {" " }
             { " " + inventoryQuant - productQuant + " item(s) left in stock " }
             <button onClick={this.handleClick.bind(this)} hidden={(()=> {if (inventoryQuant <= productQuant){ return true}})()}> Add To Cart </button>
           </div>

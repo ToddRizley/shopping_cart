@@ -18,7 +18,7 @@ const Row= class extends Component {
         return (
           <div>
           <strong>{ title }</strong> |
-            { " $"+ product[title].price } | {" " }
+            { " $"+ parseInt(product[title].price).toFixed(2)  } | {" " }
             { product[title].quantity + " item(s)" }
             <button onClick={this.handleClick.bind(this)} > Remove Items From Cart </button>
           </div>

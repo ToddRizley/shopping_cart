@@ -2,16 +2,15 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import CartRow from '../components/CartRow'
-// import fetchInventory from '../actions/fetchInventory'
 
 
 const ShoppingCartList = class extends Component {
 
 
-displayCart() {
+  displayCart() {
       if (this.props.shoppingCart.shoppingCart.length > 0 ) {
         return this.props.shoppingCart.shoppingCart.map( (product) =>
-        <div><CartRow currentUser={this.props.currentUser} productData={product}  /></div>
+        <div><CartRow currentUser={this.props.currentUser} productData={product} /></div>
       )}
     }
 
@@ -24,7 +23,7 @@ displayCart() {
           totalPrice+= (product[title].quantity * product[title].price)
         }
       )}
-      return <div>Total: ${totalPrice}</div>
+      return <div>Total: ${totalPrice.toFixed(2)}</div>
     }
 
 
