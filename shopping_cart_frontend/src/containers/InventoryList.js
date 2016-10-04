@@ -11,6 +11,7 @@ componentWillMount(){
     this.props.fetchInventory()
   }
 
+
 displayInventory () {
       if (this.props.inventory) {
         return this.props.inventory.inventory.map( (product) =>
@@ -32,7 +33,7 @@ displayInventory () {
 const InventoryListContainer = connect(mapStateToProps, mapDispatchToProps)(InventoryList)
 
   function mapStateToProps(state) {
-    return {inventory: state.inventory, currentUser: state.currentUser }
+    return {inventory: state.inventory, shoppingCart: state.shoppingCart, currentUser: state.currentUser }
   }
   function mapDispatchToProps(dispatch) {
     return  bindActionCreators({fetchInventory}, dispatch)

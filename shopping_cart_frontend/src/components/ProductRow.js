@@ -20,10 +20,10 @@ const Row= class extends Component {
           return productInfo[title].quantity
         }
       })()
+
       if (inventoryQuant <= productQuant + 1){
       this.setState({
-        hidden: true,
-        color: "grey"
+        hidden: true
       })} else {
         this.setState({
           hidden: false
@@ -40,10 +40,13 @@ const Row= class extends Component {
       this.props.addToShoppingCart(this.props.productData, this.props.currentUser.currentUser)
 
     }
-
+  toggleVisibility(){
+    this.setState({
+      hidden: !this.state.hidden
+    })
+  }
 
   render(){
-
     var title = Object.keys(this.props.productData)[0]
      var inventoryQuant = this.props.productData[title].quantity
      var productInfo = (this.props.shoppingCart.shoppingCart.find((obj)=> {if( Object.keys(obj)[0] === title ) { return obj } }))
@@ -55,11 +58,11 @@ const Row= class extends Component {
        }
      })()
         return (
-          <div>
+          <div >
           <strong>{ Object.keys(this.props.productData)[0] }</strong> |
             { " $"+ this.props.productData[title].price } | {" " }
             { " " + inventoryQuant - productQuant + " item(s) left in stock " }
-            <button onClick={this.handleClick.bind(this)} hidden={this.state.hidden}> Add To Cart </button>
+            <button onClick={this.handleClick.bind(this)} hidden={(()=> {if (inventoryQuant <= productQuant){ return true}})()}> Add To Cart </button>
           </div>
         );
       }

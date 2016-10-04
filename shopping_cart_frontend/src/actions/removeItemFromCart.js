@@ -11,7 +11,6 @@ export default function removeItemFromCart(productData, currentUser) {
     contentType:"application/json; charset=utf-8",
     dataType:"json"
   }).then( (response) => {
-    debugger
     return {
       type: 'REMOVE_ITEM_FROM_CART',
       payload: response

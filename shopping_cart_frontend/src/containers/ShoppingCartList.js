@@ -7,15 +7,24 @@ import CartRow from '../components/CartRow'
 
 const ShoppingCartList = class extends Component {
 
-// componentWillMount(){
-//     this.props.fetchInventory()
-//   }
 
 displayCart() {
       if (this.props.shoppingCart.shoppingCart.length > 0 ) {
         return this.props.shoppingCart.shoppingCart.map( (product) =>
-          <div><CartRow currentUser={this.props.currentUser} productData={product}  /></div>
+        <div><CartRow currentUser={this.props.currentUser} productData={product}  /></div>
       )}
+    }
+
+    cartTotal(){
+      debugger
+      var totalPrice = 0
+      if (this.props.shoppingCart.shoppingCart.length > 0 ) {
+          this.props.shoppingCart.shoppingCart.map( (product) => {
+          let title = Object.keys(product)[0]
+          totalPrice+= (product[title].quantity * product[title].price)
+        }
+      )}
+      return <div>Total: ${totalPrice}</div>
     }
 
 
@@ -24,6 +33,7 @@ displayCart() {
         return (
           <div> <h1> Cart </h1>
                 {this.displayCart()}
+                {this.cartTotal()}
           </div>
 
         );

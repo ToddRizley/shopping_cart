@@ -3,6 +3,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import removeItemFromCart from '../actions/removeItemFromCart'
 
+
 const Row= class extends Component {
 
     handleClick(event){
