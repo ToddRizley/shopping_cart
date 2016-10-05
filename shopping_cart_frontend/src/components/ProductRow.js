@@ -31,9 +31,6 @@ const Row= class extends Component {
       }
     }
 
-
-
-
     handleClick(event){
       event.preventDefault()
       this.toggleState()
@@ -48,7 +45,7 @@ const Row= class extends Component {
 
 
   render(){
-    var title = Object.keys(this.props.productData)[0]
+     var title = Object.keys(this.props.productData)[0]
      var inventoryQuant = this.props.productData[title].quantity
      var productInfo = (this.props.shoppingCart.shoppingCart.find((obj)=> {if( Object.keys(obj)[0] === title ) { return obj } }))
      var productQuant = (()=> {
