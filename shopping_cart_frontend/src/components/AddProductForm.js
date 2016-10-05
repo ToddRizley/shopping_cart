@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import addProductToInventory from '../actions/addProductToInventory'
-
+import NavBar from './NavBar'
 
 const Form = class extends Component {
 
@@ -55,6 +55,7 @@ const Form = class extends Component {
   render(){
         return (
         <div>
+          <NavBar />
           <center>
             <form onSubmit={this.handleFormSubmit.bind(this)} ref="form">
                 <h1>Add a Product To Store </h1>

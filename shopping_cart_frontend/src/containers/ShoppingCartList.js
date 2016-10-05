@@ -27,17 +27,16 @@ const ShoppingCartList = class extends Component {
 
 
   render(){
-        return (
-          <div>
-            <h1 id="cart">Cart</h1>
-            <table className="table2">
-              <tbody>
-                {this.displayCart()}
-                {this.cartTotal()}
-                </tbody>
-            </table>
-          </div>
-
+      return (
+        <div>
+          <h1 id="cart">Cart</h1>
+          <table className="table2">
+            <tbody>
+              {this.displayCart()}
+              {this.cartTotal()}
+            </tbody>
+          </table>
+        </div>
         );
       }
     }
