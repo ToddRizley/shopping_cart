@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
-import AddProductForm from './components/AddProductForm'
+import StartButton from './components/StartButton'
+
+
 class App extends Component {
   render() {
     return (
       <div className="App">
-        <AddProductForm />
-
+        <StartButton />
       </div>
     );
   }

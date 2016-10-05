@@ -2,4 +2,88 @@ body {
   margin: 0;
   padding: 0;
   font-family: sans-serif;
+  background-color: #354355;
+  color: white;
+  font-family: 'Slabo 27px', serif;
+
+}
+
+
+table {
+    border: 2px solid white;
+}
+
+
+td {
+    height: 50px;
+    vertical-align: bottom;
+}
+
+
+.button_start {
+  background-color: #008CBA;
+  border: none;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 20px;
+  padding: 26px 24px;
+  border-radius: 8px;
+  text-decoration: none;
+
+}
+
+.button_product {
+  background-color: #008CBA;
+  border: none;
+  color: white;
+  text-align: center;
+  display: inline-block;
+  font-size: 12px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  margin: 2px;
+
+}
+
+input[type=text], input[type=number] {
+  width: 200px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid white;
+  background-color: #354355;
+  color: white;
+  }
+
+input[type=text]:focus, input[type=number]:focus {
+    background-color: #354355;
+     border: 3px solid #555
+}
+
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+li p {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+
+li a:hover {
+    background-color: #111;
 }

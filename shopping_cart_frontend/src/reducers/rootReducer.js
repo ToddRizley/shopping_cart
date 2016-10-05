@@ -1,10 +1,11 @@
 import { combineReducers } from 'redux'
 import productReducer from './productReducer'
-import { reducer as formReducer } from 'redux-form'
-
+import shoppingCartReducer from './shoppingCartReducer'
+import userReducer from './userReducer'
 const reducers = {
-  form: formReducer,
-  productReducer: productReducer
+  inventory: productReducer,
+  shoppingCart: shoppingCartReducer,
+  currentUser: userReducer
 }
 
 const rootReducer = combineReducers(reducers)

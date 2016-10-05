@@ -4,22 +4,23 @@ module Api
     class ProductsController < ApplicationController
 
       def create
+
         title = params["product"]["title"]
         price = params["product"]["price"].to_f
         quantity = params["product"]["quantity"].to_i
-        @product = Product.find_by(title: title)
-        if @product
-          @product.quantity += quantity
-        else
-          @product =  Product.create(title: title, price: price, quantity: quantity)
+
+        quantity.times do
+          @product =  Product.create(title: title, price: price)
         end
         binding.pry
-        render json: @product
+        @inventory = InventoryPreparer.new
+
+        render json: @inventory.run
       end
 
       def index
-        binding.pry
-        render json: Product.all
+          @inventory = InventoryPreparer.new
+          render json: @inventory.run
       end
 
       def update
@@ -34,7 +35,7 @@ module Api
       private
 
       def product_params
-        params.require(:product).permit(:title, :quantity, :selected, :price)
+        params.require(:product).permit(:title, :quantity, :price)
       end
     end
   end

@@ -1,18 +1,15 @@
 import $ from 'jquery'
 
-export default function addProductToInventory(props) {
+export default function fetchInventory() {
   const URL = 'http://localhost:3000/api/v1/products'
   return $.ajax({
     url:URL,
-    type:"POST",
-    data: JSON.stringify({
-      product: props
-    }),
+    type:"GET",
     contentType:"application/json; charset=utf-8",
     dataType:"json"
   }).then( (response) => {
     return {
-      type: 'ADD_PRODUCT_TO_INVENTORY',
+      type: 'FETCH_INVENTORY',
       payload: response
     }
   })
