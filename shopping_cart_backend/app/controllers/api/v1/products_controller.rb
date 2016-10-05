@@ -12,15 +12,15 @@ module Api
         quantity.times do
           @product =  Product.create(title: title, price: price)
         end
+        binding.pry
+        @inventory = InventoryPreparer.new
 
-        @inventory = Services::PrepareInventory.new.run
-        render json: @inventory
+        render json: @inventory.run
       end
 
       def index
-        binding.pry
-          @inventory = Services::PrepareInventory.new.run
-          render json: @inventory
+          @inventory = InventoryPreparer.new
+          render json: @inventory.run
       end
 
       def update

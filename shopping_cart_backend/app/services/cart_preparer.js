@@ -1,5 +1,4 @@
-module Services
-  class PrepareCart
+class CartPreparer
 
       def prepare_cart(current_user)
         product_list = []
@@ -29,4 +28,3 @@ module Services
 
 
   end
-end
