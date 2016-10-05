@@ -7,43 +7,20 @@ module Api
 
         title = params["product"]["title"]
         price = params["product"]["price"].to_f
-        @product = Product.find_by(title: title)
-        if @product
-          @product.quantity += 1
-        else
+        quantity = params["product"]["quantity"].to_i
+
+        quantity.times do
           @product =  Product.create(title: title, price: price)
         end
 
-        def prepare_inventory
-          product_list = []
-          Product.all.each do |prod|
-              if product_list.detect {|pr| pr.keys[0] == prod["title"] }
-                product_list.select {|pr| pr.keys[0] == prod["title"] }[0][prod.title][:quantity] += 1
-              else
-                n = 1
-                product_list.push(prod.title => {quantity: n, price: prod.price})
-              end
-          end
-          product_list
-        end
-        render json: prepare_inventory
+        @inventory = Services::PrepareInventory.new.run
+        render json: @inventory
       end
 
       def index
-        def prepare_inventory
-          product_list = []
-          Product.all.each do |prod|
-              if product_list.detect {|pr| pr.keys[0] == prod["title"] }
-                product_list.select {|pr| pr.keys[0] == prod["title"] }[0][prod.title][:quantity] += 1
-              else
-                n = 1
-                product_list.push( prod.title => {quantity: n, price: prod.price})
-              end
-          end
-      
-          product_list
-        end
-        render json: prepare_inventory
+        binding.pry
+          @inventory = Services::PrepareInventory.new.run
+          render json: @inventory
       end
 
       def update
@@ -58,7 +35,7 @@ module Api
       private
 
       def product_params
-        params.require(:product).permit(:title, :quantity, :selected, :price)
+        params.require(:product).permit(:title, :quantity, :price)
       end
     end
   end
