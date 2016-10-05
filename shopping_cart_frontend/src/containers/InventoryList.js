@@ -15,7 +15,7 @@ componentWillMount(){
 displayInventory () {
       if (this.props.inventory) {
         return this.props.inventory.inventory.map( (product) =>
-          <div><ProductRow currentUser={this.props.currentUser} productData={product}  /></div>
+          <ProductRow currentUser={this.props.currentUser} productData={product}  />
       )}
     }
 
@@ -24,7 +24,9 @@ displayInventory () {
   render(){
         return (
           <div> <h1> Inventory </h1>
+            <table className="table1">
                 {this.displayInventory()}
+              </table>
           </div>
 
         );

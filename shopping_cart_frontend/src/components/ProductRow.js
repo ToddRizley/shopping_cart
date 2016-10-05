@@ -59,12 +59,12 @@ const Row= class extends Component {
        }
      })()
         return (
-          <div>
-          <strong>{ Object.keys(this.props.productData)[0] }</strong> |
-            { " $"+ parseInt(this.props.productData[title].price).toFixed(2) } | {" " }
-            { " " + inventoryQuant - productQuant + " item(s) left in stock " }
-            <span hidden={(()=> {if (inventoryQuant <= productQuant){ return true}})()}><button className="button_product" onClick={this.handleClick.bind(this)} > Add To Cart </button></span>
-          </div>
+          <tr>
+            <td><strong>{ Object.keys(this.props.productData)[0] }</strong></td>
+            <td>{ " $"+ parseFloat(this.props.productData[title].price).toFixed(2) }</td>
+            <td>{ "  " + inventoryQuant - productQuant + " item(s) left in stock " }</td>
+            <td  hidden={(()=> {if (inventoryQuant <= productQuant){ return true}})()}><button className="button_product" onClick={this.handleClick.bind(this)} > Add To Cart </button></td>
+          </tr>
         );
       }
     }

@@ -6,8 +6,18 @@ body {
   color: white;
   font-family: 'Slabo 27px', serif;
 
-
 }
+
+table {
+    border: 2px solid white;
+}
+
+
+td {
+    height: 50px;
+    vertical-align: bottom;
+}
+
 
 .button_start {
   background-color: #227622;

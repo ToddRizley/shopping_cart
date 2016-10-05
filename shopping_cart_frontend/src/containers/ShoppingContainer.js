@@ -6,8 +6,9 @@ import ShoppingCartListContainer from './ShoppingCartList'
 class ShoppingContainer extends Component {
   render() {
     return (
-      <div >
-        <InventoryListContainer /> <ShoppingCartListContainer />
+      <div className="shopping_container" >
+        <InventoryListContainer className="inventory_container" />
+        <ShoppingCartListContainer className="cart_container" />
       </div>
     );
   }
