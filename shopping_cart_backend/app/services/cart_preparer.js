@@ -1,4 +1,10 @@
+module Services
 class CartPreparer
+  attr_reader :current_user
+
+  def initialize(current_user)
+    @current_user = current_user
+  end
 
       def prepare_cart(current_user)
         product_list = []
@@ -28,3 +34,4 @@ class CartPreparer
 
 
   end
+end

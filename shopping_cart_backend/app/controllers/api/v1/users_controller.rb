@@ -10,8 +10,8 @@ module Api
       def update
         current_user = User.all.find_by(id: params["id"].to_i)
         title = title = params["product"].keys[0]
-        CartPreparer.new.update_cart(params["type"], current_user, title)
-        cart = CartPreparer.new.prepare_cart(current_user)
+        Cart.new.update_cart(params["type"], current_user, title)
+        cart = Cart.new.prepare_cart(current_user)
 
         render json: cart
       end

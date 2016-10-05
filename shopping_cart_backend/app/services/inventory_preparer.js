@@ -1,7 +1,7 @@
 
   class PrepareInventory
 
-    def run
+    def prepare_inventory
       product_list = []
       Product.all.each do |prod|
           if product_list.detect {|pr| pr.keys[0] == prod["title"] }
