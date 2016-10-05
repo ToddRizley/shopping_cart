@@ -1,7 +1,6 @@
 import $ from 'jquery'
 
 export default function addProductToInventory(props) {
-  debugger
   const URL = 'http://localhost:3000/api/v1/products'
   return $.ajax({
     url:URL,

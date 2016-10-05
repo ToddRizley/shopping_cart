@@ -8,6 +8,7 @@ body {
 
 }
 
+
 table {
     border: 2px solid white;
 }
@@ -20,7 +21,7 @@ td {
 
 
 .button_start {
-  background-color: #227622;
+  background-color: #008CBA;
   border: none;
   color: white;
   text-align: center;
@@ -43,4 +44,20 @@ td {
   border-radius: 8px;
   margin: 2px;
 
+}
+
+input[type=text], input[type=number] {
+  width: 200px;
+  padding: 12px 20px;
+  margin: 8px 0;
+  box-sizing: border-box;
+  border: none;
+  border-bottom: 2px solid white;
+  background-color: #354355;
+  color: white;
+  }
+
+input[type=text]:focus, input[type=number]:focus {
+    background-color: #354355;
+     border: 3px solid #555
 }

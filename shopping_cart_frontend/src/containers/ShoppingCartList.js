@@ -21,7 +21,7 @@ const ShoppingCartList = class extends Component {
           totalPrice+= (product[title].quantity * product[title].price)
         }
       )}
-      return <div>Total: ${totalPrice.toFixed(2)}</div>
+      return <tr>Total: ${totalPrice.toFixed(2)}</tr>
     }
 
 
@@ -31,8 +31,10 @@ const ShoppingCartList = class extends Component {
           <div>
             <h1 id="cart">Cart</h1>
             <table className="table2">
+              <tbody>
                 {this.displayCart()}
                 {this.cartTotal()}
+                </tbody>
             </table>
           </div>
 
