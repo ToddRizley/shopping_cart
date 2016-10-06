@@ -1,6 +1,6 @@
 import $ from 'jquery'
 export default function removeItemFromCart(productData, currentUser) {
-  debugger
+
   const URL = `http://localhost:3000/api/v1/users/${currentUser.id}`
   return $.ajax({
     url:URL,

@@ -7,8 +7,12 @@ import NavBar from './NavBar'
 const Form = class extends Component {
 
   handleFormSubmit(event){
+    //on Submit of form, the logic checks that all the inputs are valid, validating
+    //client side before sending JSON to the Rails 5 API, if everything is
+    //correct, an action is dispatched and the Rails API is pinged
     event.preventDefault()
-    var product = {title: this.refs.title.value, price: this.refs.price.value, quantity: this.refs.quantity.value}
+    var product = {title: this.refs.title.value, price: this.refs.price.value,
+      quantity: this.refs.quantity.value}
     if (this.validateAllInputs(product)){
       this.props.addProductToInventory(product)
       this.refs.form.reset()
@@ -28,7 +32,9 @@ const Form = class extends Component {
 
   validatePrice(product){
     var regex = /^\d*(.\d{2})?$/;
-    if ( product.price !== "" && typeof(parseFloat(product.price)) === "number" && parseFloat(product.price) > 0  && regex.test(product.price)  ){
+    if ( product.price !== "" && typeof(parseFloat(product.price)) === "number"
+    && parseFloat(product.price) > 0
+    && regex.test(product.price)  ){
       return true
     } else {
       return false
@@ -36,7 +42,8 @@ const Form = class extends Component {
   }
 
   validateQuantity(product){
-    if ( product.quantity !== "" && typeof(parseInt(product.quantity)) === "number" && parseInt(product.quantity) > 0  ){
+    if ( product.quantity !== "" && typeof(parseInt(product.quantity)) === "number"
+    && parseInt(product.quantity) > 0  ){
       return true
     } else {
       return false
@@ -44,7 +51,8 @@ const Form = class extends Component {
   }
 
   validateAllInputs(product){
-    if (this.validatePrice(product) && this.validateTitle(product) && this.validateQuantity(product)){
+    if (this.validatePrice(product) && this.validateTitle(product) &&
+    this.validateQuantity(product)){
       return true
     } else {
       return false
