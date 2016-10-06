@@ -1,5 +1,8 @@
 #README
 
+![ezgif com-video-to-gif](https://cloud.githubusercontent.com/assets/13028695/19162997/1d2f9ece-8bc8-11e6-800c-646e5c40405c.gif)
+
+
 Greetings! Welcome to my small Shopping Cart App. The app utilizes React/Redux on the front end with Rails 5 JSON  API on the backend. The app is not currently deployed so please follow the below instructions for how to run locally:
 
 clone repo locally
