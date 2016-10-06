@@ -13,7 +13,7 @@ const Form = class extends Component {
       this.props.addProductToInventory(product)
       this.refs.form.reset()
     } else {
-      alert("invalid entry")
+      alert("Invalid Entry")
       this.refs.form.reset()
     }
   }
