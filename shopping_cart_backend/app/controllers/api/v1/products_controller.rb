@@ -9,10 +9,16 @@ module Api
         price = params["product"]["price"].to_f
         quantity = params["product"]["quantity"].to_i
 
+        ##controller action create adds new products to our DB
+        ##quantity specifies how many new instances of the produt we want to create
+        ## and add to our DB
+
         quantity.times do
           @product =  Product.create(title: title, price: price)
         end
         @inventory = Product.new.prepare_inventory
+        ##the prepare_inventory methods queries the database and parses the data
+        ## in such a way as to have product titles be keys to objects holding quantity and price info
 
         render json: @inventory
       end

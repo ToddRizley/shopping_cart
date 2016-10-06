@@ -1,24 +1,10 @@
-# README
+#README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+Hello! This is the back-end of my small shopping cart app.  The app communicates with the shopping_cart_backend utilizes the Rails 5 JSON API repo link here and communicates with the React-Redux view layer.
+Front end repo here: https://github.com/ToddRizley/shopping_cart/tree/master/shopping_cart_frontend
 
-* Ruby version
+Check the parent repo for info on how to run the application locally: https://github.com/ToddRizley/shopping_cart
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+--Todd Rizley, October 2016
