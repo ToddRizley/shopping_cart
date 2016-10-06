@@ -29,5 +29,5 @@ class Cart < ApplicationRecord
       end
     end
   end
-  
+
 end

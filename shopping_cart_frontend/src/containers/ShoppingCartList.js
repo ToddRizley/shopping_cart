@@ -28,9 +28,9 @@ const ShoppingCartList = class extends Component {
 
   render(){
       return (
-        <div>
+        <div className="table2">
           <h1 id="cart">Cart</h1>
-          <table className="table2">
+          <table >
             <tbody>
               {this.displayCart()}
               {this.cartTotal()}

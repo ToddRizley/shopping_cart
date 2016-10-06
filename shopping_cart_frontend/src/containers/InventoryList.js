@@ -19,12 +19,11 @@ displayInventory () {
       )}
     }
 
-
-
   render(){
         return (
-          <div> <h1> Inventory </h1>
-            <table className="table1">
+          <div className="table1">
+            <h1> Inventory </h1>
+            <table >
                 {this.displayInventory()}
               </table>
           </div>
