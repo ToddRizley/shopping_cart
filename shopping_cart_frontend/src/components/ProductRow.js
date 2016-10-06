@@ -82,7 +82,6 @@ const Row= class extends Component {
   }
 
   validateQuant(quant, inventoryQuant, cartQuant){
-    debugger
     if (quant > inventoryQuant - cartQuant){
           return false
         } else {
