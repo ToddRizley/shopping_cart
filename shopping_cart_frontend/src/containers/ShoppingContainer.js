@@ -5,6 +5,8 @@ import NavBar from '../components/NavBar'
 
 
 class ShoppingContainer extends Component {
+
+
   render() {
     return (
       <div className="shopping_container" >

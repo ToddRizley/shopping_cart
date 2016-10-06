@@ -9,6 +9,7 @@ import { Router, browserHistory } from 'react-router';
 import Routes from './routes';
 
 let storewithmiddleware = applyMiddleware(reduxPromise)(createStore)(rootReducer)
+//Using React Router to handle routing, additional middleware included when creating store
 
 ReactDOM.render(
   <Provider store={storewithmiddleware}>
